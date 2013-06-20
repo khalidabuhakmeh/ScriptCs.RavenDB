@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ScriptCs.RavenDB</id>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
         <title>ScriptCS RavenDB Script Pack</title>
         <authors>khalidabuhakmeh</authors>
         <owners>khalidabuhakmeh</owners>
@@ -14,6 +14,7 @@
         <tags>ScriptCS, RavenDB</tags>
         <dependencies>
             <dependency id="RavenDB.Embedded" version="2.0.2375" />
+            <dependency id="ScriptCs.Contracts" version="0.5.0" />
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Web" targetFramework="" />
