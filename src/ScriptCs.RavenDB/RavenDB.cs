@@ -65,6 +65,8 @@ namespace ScriptCs.RavenDB
         private static string FindClrTypeName(Type type)
         {
             var name = ReflectionUtil.GetFullNameWithoutVersionInformation(type);
+            // the ℛ is an artifact of the Roslyn compiler when married with reflection
+            // it will blow up RavenDB if not handeled
             return name.Contains("ℛ") ? MonoHttpUtility.UrlEncode(name) : name;
         }
     }
