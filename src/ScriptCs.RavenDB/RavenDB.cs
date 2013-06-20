@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Embedded;
+using Raven.Database.Extensions;
 using ScriptCs.Contracts;
 
 namespace ScriptCs.RavenDB
@@ -21,7 +22,8 @@ namespace ScriptCs.RavenDB
             var documentStore = new EmbeddableDocumentStore
             {
                 UseEmbeddedHttpServer = true,
-                RunInMemory = runInMemory
+                RunInMemory = runInMemory,
+                Conventions = { FindClrTypeName = FindClrTypeName }
             };
             documentStore.Initialize();
 
@@ -37,7 +39,8 @@ namespace ScriptCs.RavenDB
         {
             var documentStore = new DocumentStore
             {
-                Url = url
+                Url = url,
+                Conventions = { FindClrTypeName = FindClrTypeName }
             }.Initialize();
 
             Stores.Add(name, documentStore);
@@ -57,6 +60,12 @@ namespace ScriptCs.RavenDB
                 documentStore.Dispose();
 
             Stores.Clear();
+        }
+
+        private static string FindClrTypeName(Type type)
+        {
+            var name = ReflectionUtil.GetFullNameWithoutVersionInformation(type);
+            return name.Contains("ℛ") ? MonoHttpUtility.UrlEncode(name) : name;
         }
     }
 }
