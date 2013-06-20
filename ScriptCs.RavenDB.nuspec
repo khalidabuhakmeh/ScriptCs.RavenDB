@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>ScriptCs.RavenDB</id>
+        <version>1.0.0</version>
+        <title>ScriptCS RavenDB Script Pack</title>
+        <authors>khalidabuhakmeh</authors>
+        <owners>khalidabuhakmeh</owners>
+        <projectUrl>http://github.com/khalidabuhakmeh/scriptcs.ravendb</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>a script pack that exposes RavenDB to the ScriptCS engine. Uses RavenDB version 2.0.</description>
+        <releaseNotes>There are plans for RavenDB 2.5 support soon.</releaseNotes>
+        <copyright>2013 Khalid Abuhakmeh</copyright>
+        <tags>ScriptCS, RavenDB</tags>
+        <dependencies>
+            <dependency id="RavenDB.Embedded" version="2.0.2375" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Web" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="src\ScriptCs.RavenDB\bin\Release\ScriptCs.RavenDB.dll" target="lib\net45\ScriptCs.RavenDB.dll" />
+    </files>
+</package>

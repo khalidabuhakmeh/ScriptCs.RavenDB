@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Embedded;
-using Raven.Database.Extensions;
 using ScriptCs.Contracts;
 
 namespace ScriptCs.RavenDB
@@ -67,7 +67,7 @@ namespace ScriptCs.RavenDB
             var name = ReflectionUtil.GetFullNameWithoutVersionInformation(type);
             // the ℛ is an artifact of the Roslyn compiler when married with reflection
             // it will blow up RavenDB if not handeled
-            return name.Contains("ℛ") ? MonoHttpUtility.UrlEncode(name) : name;
+            return name.Contains("ℛ") ? HttpUtility.UrlEncode(name) : name;
         }
     }
 }
